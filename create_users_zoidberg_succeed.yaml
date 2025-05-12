@@ -1,0 +1,13 @@
+- hosts: zoidberg
+  become: true
+
+  tasks:
+    - name: Create multiple users (correct)
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - alice
+        - bob
+
+
